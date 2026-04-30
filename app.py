@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 from vehicle_analysis.data_loader import load_and_clean
 from vehicle_analysis.visualisation import (
     plot_sales_trends, 
-    plot_co2_vs_ev_share,
-    plot_regional_comparison
+    plot_global_powertrain_mix,
+    plot_regional_sales_comparison
 )
 
 # ---------------------------------------------------------------------------
@@ -97,7 +97,7 @@ st.divider()
 # ---------------------------------------------------------------------------
 st.header("2. Market Visualisations")
 
-tab1, tab2, tab3 = st.tabs(["📈 Sales Trends", "🌍 Regional Comparison", "🌱 Environmental Impact"])
+tab1, tab2, tab3 = st.tabs(["📈 Sales Trends", "🌍 Regional Comparison", "🚗 Powertrain Mix"])
 
 with tab1:
     st.subheader("Global Vehicle Sales Breakdown")
@@ -105,13 +105,13 @@ with tab1:
     st.pyplot(fig1)
 
 with tab2:
-    st.subheader("EV Market Share by Region")
-    fig2 = plot_regional_comparison(filtered_df)
+    st.subheader("Vehicle Sales by Region")
+    fig2 = plot_regional_sales_comparison(filtered_df)
     st.pyplot(fig2)
 
 with tab3:
-    st.subheader("CO2 Emissions vs EV Adoption")
-    fig3 = plot_co2_vs_ev_share(filtered_df)
+    st.subheader("Global Powertrain Mix Over Time")
+    fig3 = plot_global_powertrain_mix(filtered_df)
     st.pyplot(fig3)
 
 # ---------------------------------------------------------------------------
